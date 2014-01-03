@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/app.js"></script>
+<style>
+.line { font: 12px/15px monospace; margin: 0px; clear: both; }
+.line .lineno { display: inline-block; width: 5em; background-color: #ddf; border-right: solid thin black; padding: 2px 0.5em; text-align: right; float: left;}
+.line .txt { display: block; padding: 2px 6.5em; background-color: #dfd; }
+.line .txt .matched { color: red; }
+#result {
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    overflow:scroll;
+}
+</style>
+
+</head>
+<body>
+<h3>WebSocket Tail & Grep - <span id="filename"><span> [ <span id="status"><span> ] </h3>
+<fieldset id="options">
+tail 
+[<input type="checkbox" name="tail.option" value="-f"> -f]
+[-<input type="text" name="tail.line" value="10"/>]
+<input type="text" name="tail.filename" value=""/> 
+[<input type="checkbox" name="grep" value="Y"> | 
+grep
+[<input type="checkbox" name="grep.option" value="-i"> -i]
+[<input type="checkbox" name="grep.option" value="-v"> -v]
+[<input type="checkbox" name="grep.option" value="-W"> -w]
+-e <input type="text" name="grep.regex">
+]
+<button id="execute">Execute</button>
+</fieldset>
+<div id="result">
+</div>
+</body>
+</html>
+
